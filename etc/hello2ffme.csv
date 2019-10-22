@@ -1,0 +1,40 @@
+champ ffme;champ helloasso ou fct:nom_fonction;champ helloasso...
+ACTION;fct:action;Champ additionnel: Si vous avez déjà été licencié à la FFME, veuillez renseigner votre n° de licence composé de 6 chiffres (xxxxxx)
+NOM;Nom
+PRENOM;Prénom
+DATE DE NAISSANCE;Date de naissance
+SEXE;Champ additionnel: Sexe
+NATIONALITE;Champ additionnel: Nationalité
+ADRESSE;Champ additionnel: Adresse
+ADRESSE COMPLEMENT;Champ additionnel: Complément d'adresse
+CODE POSTAL;Champ additionnel: Code Postal
+VILLE;Champ additionnel: Ville
+PAYS;Champ additionnel: Pays
+TEL FIXE;Champ additionnel: Numéro de téléphone fixe
+TEL MOBILE;Champ additionnel: Numéro de téléphone mobile
+COURRIEL;Champ additionnel: Email
+COURRIEL 2;Champ additionnel: Email n°2
+GROUPE;
+PAP NOM;Champ additionnel: Personne(s) à prévenir en cas d'accident : nom
+PAP PRENOM;Champ additionnel: Personne(s) à prévenir en cas d'accident : prénom
+PAP ADRESSE;
+PAP ADRESSE COMPLEMENT;
+PAP CODE POSTAL;
+PAP VILLE;
+PAP TELEPHONE;Champ additionnel: Personne(s) à prévenir en cas d'accident : téléphone
+PAP COURRIEL;Champ additionnel: Personne(s) à prévenir en cas d'accident : email
+NUMERO DE LICENCE;Champ additionnel: Si vous avez déjà été licencié à la FFME, veuillez renseigner votre n° de licence composé de 6 chiffres (xxxxxx)
+TYPE LICENCE;fct:type;Formule
+ASSURANCE;fct:assurance;Formule
+OPTION SKI;fct:ski;Formule
+OPTION SLACKLINE;fct:slackline;Formule
+OPTION TRAIL;fct:trail;Formule
+OPTION VTT;fct:vtt;Formule
+ASSURANCE COMPLEMENTAIRE;
+ATTESTATION SANTE;Champ additionnel: Certificat Médical ou Attestation de Santé (CERFA N°15699*01)
+CM TYPE;Champ additionnel: Type de certificat médical
+CM MEDECIN;Champ additionnel: Nom du medecin ayant délivré le Certificat Médical
+DATE FIN CM PSS;
+CM ALPINISME;
+CM ALPINISME MEDECIN;
+

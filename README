@@ -1,0 +1,39 @@
+
+# NAME
+
+hello2ffme - Transformer le csv HelloAsso en un csv pour la FFME
+
+# INSTALLATION
+
+    carton install
+
+pour installer les modules perl nécéssaires
+
+# SYNOPSIS
+
+    bin/hello2ffme [--conf etc/hello2ffme.csv] < hello.csv > ffme.csv
+
+# DESCRIPTION
+
+Le fichier d'entrée hello.csv est un csv encodé en UTF-8
+dont le séparateur est le ';'
+
+Le fichier de sortie ffme.csv sera un csv encodé en UTF-8
+avec pour séparateur ';' et pour première ligne le nom des colonnes du fichier.
+
+La transformation est pilotée par le fichier de configuration 
+par défaut etc/hello2ffme.csv
+
+C'est un csv avec comme séparateur le ';' et pour première ligne le nom des colonnes du fichier
+nom du champ ffme dans le fichier de sortie;champ_helloasso1 correspondant;champ_helloasso2...
+
+Chaque ligne du fichier d'entrée hello.csv est parsée.
+Pour chaque ligne du fichier de conf, un champ sera créé dans le fichier de sortie
+sa valeur sera la valeur du champ spécifié en 2e colonne du fichier d'entrée.
+On peut spécifier plusieurs colonnes dans ce cas 
+les valeurs seront concaténées avec un espace.
+
+Si la valeur de champ_helloasso1 commence par 'fct:', 
+ex 'fct:action' alors la fonction Chaviroc::Hello2Ffme::action 
+sera appélée avec en paramètre la ou les valeurs des champs spécifiés
+de la ligne du fichier d'entrée courante

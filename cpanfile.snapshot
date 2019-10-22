@@ -1,0 +1,12 @@
+# carton snapshot format: version 1.0
+DISTRIBUTIONS
+  Text-CSV_XS-1.40
+    pathname: H/HM/HMBRAND/Text-CSV_XS-1.40.tgz
+    provides:
+      Text::CSV_XS 1.40
+    requirements:
+      Config 0
+      ExtUtils::MakeMaker 0
+      IO::Handle 0
+      Test::More 0
+      XSLoader 0

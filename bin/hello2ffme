@@ -10,13 +10,21 @@ use lib "$RealBin/../local/lib/perl5";
 use Text::CSV_XS;
 
 use lib "$RealBin/../lib";
-use Chaviroc::Hello2Ffme qw< data value conf >;
+use Chaviroc::Hello2Ffme qw< data value conf conf_pays >;
 
 # configuration file
 # drives transformations
 my $conf = "$RealBin/../etc/hello2ffme.csv";
-GetOptions("conf=s" => \$conf);
 
+# liste code pays
+my $pays = "$RealBin/../etc/pays.csv";
+
+GetOptions(
+    "conf=s" => \$conf,
+    "pays=s" => \$pays,
+);
+
+# fichier d'entrée : 1er argument ou stdin
 my ($filein, $fileout) = @ARGV;
 my $in = *STDIN;
 if ($filein) {
@@ -24,13 +32,18 @@ if ($filein) {
         or die "pb open < $filein: $!";
 }
 
+# fichier sortie : 2e argument ou stdout
 my $out = *STDOUT;
 if ($fileout) {
     open $out, '>', $fileout
         or die "pb open > $fileout: $!";
 }
-    
+
+# parser fichier conf
 my @fields = conf($conf);
+
+# parser fichier code pays
+conf_pays($pays);
 
 # read and write csv
 # separator ';'
@@ -79,7 +92,7 @@ pour installer les modules perl nécéssaires
 
 =head1 SYNOPSIS
 
-    bin/hello2ffme [--conf etc/hello2ffme.csv] < hello.csv > ffme.csv
+    bin/hello2ffme [--conf etc/hello2ffme.csv] [--pays etc/pays.csv] < hello.csv > ffme.csv
 
 =head1 DESCRIPTION
 

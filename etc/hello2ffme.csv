@@ -4,12 +4,12 @@ NOM;Nom
 PRENOM;Prénom
 DATE DE NAISSANCE;Date de naissance
 SEXE;Champ additionnel: Sexe
-NATIONALITE;Champ additionnel: Nationalité
+NATIONALITE;fct:pays;Champ additionnel: Nationalité
 ADRESSE;Champ additionnel: Adresse
 ADRESSE COMPLEMENT;Champ additionnel: Complément d'adresse
 CODE POSTAL;Champ additionnel: Code Postal
 VILLE;Champ additionnel: Ville
-PAYS;Champ additionnel: Pays
+PAYS;fct:pays;Champ additionnel: Pays
 TEL FIXE;Champ additionnel: Numéro de téléphone fixe
 TEL MOBILE;Champ additionnel: Numéro de téléphone mobile
 COURRIEL;Champ additionnel: Email
@@ -31,10 +31,10 @@ OPTION SLACKLINE;fct:slackline;Formule
 OPTION TRAIL;fct:trail;Formule
 OPTION VTT;fct:vtt;Formule
 ASSURANCE COMPLEMENTAIRE;
-ATTESTATION SANTE;Champ additionnel: Certificat Médical ou Attestation de Santé (CERFA N°15699*01)
+ATTESTATION SANTE;fct:sante;Champ additionnel: Certificat Médical ou Attestation de Santé (CERFA N°15699*01)
 CM TYPE;Champ additionnel: Type de certificat médical
 CM MEDECIN;Champ additionnel: Nom du medecin ayant délivré le Certificat Médical
 DATE FIN CM PSS;
-CM ALPINISME;
+CM ALPINISME;fct:alpinisme;
 CM ALPINISME MEDECIN;
 

@@ -4,24 +4,24 @@ use Text::CSV_XS;
 
 require Exporter;
 our @ISA = qw< Exporter >;
-our @EXPORT_OK = qw< data conf value action type assurance ski slackline trail vtt >;
+our @EXPORT_OK = qw< data conf value action type assurance ski slackline trail vtt code_pays conf_pays >;
 
 sub data {
     my ($row, $head) = @_;
     return { map { $head->[$_] => $row->[$_] } 0 .. $#$head };
 }
 
+my $parser = Text::CSV_XS->new({
+    allow_loose_quotes => 1,
+    binary => 1,
+    sep_char => ';',
+});
+
 sub conf {
     my $file = shift;
 
     open my $in, '<', $file
         or die "pb open $file: $!";
-
-    my $parser = Text::CSV_XS->new({
-        allow_loose_quotes => 1,
-        binary => 1,
-        sep_char => ';',
-    });
 
     my $head = $parser->getline($in);
 
@@ -58,6 +58,45 @@ sub value {
 sub action {
     my $num = shift;
     return $num ? 'R' : 'C';
+}
+
+my $codes;
+
+sub conf_pays {
+    my $file = shift;
+
+    open my $in, '<', $file
+        or die "pb open < $file: $!";
+
+    $parser->getline($in);
+    while (my $row = $parser->getline($in)) {
+        $codes->{$row->[0]} = $row->[1];
+    }
+}
+
+sub code_pays {
+    my $pays = shift;    
+
+    $codes //= conf_pays;
+
+    # match direct
+    return $codes->{$pays} if $codes->{$pays};
+
+    # on essaie sans la casse
+    for my $key (keys %$codes) {
+        return $codes->{$key} if lc $key eq lc $pays;
+    }
+
+    # FR par défaut
+    return 'FR';
+}
+
+sub sante {
+    return shift ? 'OUI' : 'NON';
+}
+
+sub alpinisme {
+    return 'NON';
 }
 
 sub type {

@@ -90,19 +90,25 @@ Le fichier de sortie ffme.csv sera un csv encodé en UTF-8
 avec pour séparateur ';' et pour première ligne le nom des colonnes du fichier.
 
 La transformation est pilotée par le fichier de configuration 
-par défaut etc/hello2ffme.csv
+(par défaut etc/hello2ffme.csv)
 
-C'est un csv avec comme séparateur le ';' et pour première ligne le nom des colonnes du fichier
-nom du champ ffme dans le fichier de sortie;champ_helloasso1 correspondant;champ_helloasso2...
+C'est un csv avec comme séparateur le ';' et pour première ligne le nom des colonnes.
 
-Chaque ligne du fichier d'entrée hello.csv est parsée.
-Pour chaque ligne du fichier de conf, un champ sera créé dans le fichier de sortie
-sa valeur sera la valeur du champ spécifié en 2e colonne du fichier d'entrée.
-On peut spécifier plusieurs colonnes dans ce cas 
-les valeurs seront concaténées avec un espace.
+Il sert à faire correspondre un ou plusieurs champs du fichier d'entrée
+vers un champ du fichier de sortie.
 
-Si la valeur de champ_helloasso1 commence par 'fct:', 
-ex 'fct:action' alors la fonction Chaviroc::Hello2Ffme::action 
-sera appélée avec en paramètre la ou les valeurs des champs spécifiés
-de la ligne du fichier d'entrée courante
+La première colonne "champ ffme" donne le nom du champ du fichier de sortie.
+Les colonnes suivantes les valeurs du fichier d'entrée à faire correspondre.
+Si plusieurs colonnes sont spécifiées, les valeurs correspondantes seront concaténées avec un espace.
 
+Parfois la simple correspondance entre 2 champs des 2 fichiers est insuffisante.
+Dans ce cas il est possible de spécifier dans le premier champ helloasso une fonction
+en préfixant son nom par "fct:".
+Les valeurs correspondant aux colonnes spécifiées suivantes seront données en argument à la fonction.
+
+Par exemple, une ligne du fichier de conf
+
+    ACTION;fct:action;licence
+
+appelera la fonction Chaviroc::Hello2Ffme::action avec pour argument la valeur du champ licence du fichier d'entrée.
+La valeur retournée valorisera la colonne ACTION du fichier de sortie.

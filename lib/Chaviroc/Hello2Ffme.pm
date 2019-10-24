@@ -4,7 +4,10 @@ use Text::CSV_XS;
 
 require Exporter;
 our @ISA = qw< Exporter >;
-our @EXPORT_OK = qw< data conf value action type assurance ski slackline trail vtt code_pays conf_pays >;
+our @EXPORT_OK = qw< 
+    data conf value action type assurance ski slackline trail
+    vtt code_pays conf_pays telephone
+>;
 
 sub data {
     my ($row, $head) = @_;
@@ -146,6 +149,11 @@ sub trail {
 }
 
 sub vtt {
+}
+
+sub telephone {
+    my $number = shift;
+    return sprintf "%010d", $number;
 }
 
 1;

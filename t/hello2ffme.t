@@ -7,7 +7,9 @@ use File::Temp 'tempfile';
 use FindBin '$RealBin';
 use lib "$RealBin/../lib";
 
-use_ok 'Chaviroc::Hello2Ffme', 'data', 'conf', 'value', 'action', 'type', 'assurance', 'ski', 'slackline', 'trail', 'vtt', 'code_pays', 'conf_pays';
+use_ok 'Chaviroc::Hello2Ffme', 'data', 'conf', 'value', 'action', 'type',
+       'assurance', 'ski', 'slackline', 'trail', 'vtt', 'code_pays', 'conf_pays',
+       'telephone';
 
 my $data = data([ 0, 1, 2, 3 ], ['a', 'b', 'c']);
 is $data->{a}, 0;
@@ -51,6 +53,8 @@ is assurance('Inscription Adulte NON CHAVILLOIS  - Assurance Base +'), 'B+';
 is assurance('Inscription Jeune NON CHAVILLOIS - Assurance Base'), 'B';
 is assurance('Inscription Adulte Chavillois - Assurance Base'), 'B';
 
+is telephone('1234'), '0000001234';
+is telephone('abc'),  '0000000000';
 # conf_pays
 my $pays = pays_file();
 ok -s $pays;

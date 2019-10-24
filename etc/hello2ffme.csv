@@ -4,12 +4,12 @@ NOM;Nom
 PRENOM;Prénom
 DATE DE NAISSANCE;Date de naissance
 SEXE;Champ additionnel: Sexe
-NATIONALITE;fct:pays;Champ additionnel: Nationalité
+NATIONALITE;fct:code_pays;Champ additionnel: Nationalité
 ADRESSE;Champ additionnel: Adresse
 ADRESSE COMPLEMENT;Champ additionnel: Complément d'adresse
 CODE POSTAL;Champ additionnel: Code Postal
 VILLE;Champ additionnel: Ville
-PAYS;fct:pays;Champ additionnel: Pays
+PAYS;fct:code_pays;Champ additionnel: Pays
 TEL FIXE;Champ additionnel: Numéro de téléphone fixe
 TEL MOBILE;Champ additionnel: Numéro de téléphone mobile
 COURRIEL;Champ additionnel: Email

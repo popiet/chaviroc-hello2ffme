@@ -35,7 +35,7 @@ if ($filein) {
 # fichier sortie : 2e argument ou stdout
 my $out = *STDOUT;
 if ($fileout) {
-    open $out, '>', $fileout
+    open $out, '>:encoding(utf8)', $fileout
         or die "pb open > $fileout: $!";
 }
 

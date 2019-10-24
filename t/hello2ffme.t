@@ -24,8 +24,12 @@ is scalar @fields, 38;
 $data = { bonjour => 'aurevoir', salut => 'bisous'};
 is value($data, ['field1', 'salut']), 'bisous';
 is value($data, ['field2', 'bonjour']), 'aurevoir';
-is value($data, ['field3', 'bonjour', 'salut', 'chiao']), 'aurevoir bisous ';
-is value($data, ['field4', 'unknown']), '';
+
+# erreur si champ n'existe pas
+eval { value($data, ['field4', 'unknown']) };
+is $@, "ligne: [field4;unknown]\n[unknown] n'est pas un champ du fichier d'entrée\n";
+
+# permettre champ vide
 is value($data, ['field4', '']), '';
 
 is action(0), 'C';
@@ -34,6 +38,10 @@ is action(undef), 'C';
 is action('abc'), 'R';
 
 is value($data, ['field5', 'fct:action', 'salut', 'bonjour']), 'R';
+
+# erreur si fct n'existe pas
+eval { value($data, ['field5', 'fct:actionNonDefinie', 'salut', 'bonjour']) };
+is $@, "ligne: [field5;fct:actionNonDefinie;salut;bonjour]\n[actionNonDefinie] n'est pas une fonction de Chaviroc::Hello2Ffme\n";
 
 is type('Inscription Adulte NON CHAVILLOIS  - Assurance Base +'), 'A';
 is type('Inscription Jeune NON CHAVILLOIS - Assurance Base'), 'J';

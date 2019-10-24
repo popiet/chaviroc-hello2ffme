@@ -45,11 +45,30 @@ sub value {
 
     # call fct ?
     if ($hello =~ /^fct:(.*)/) {
-        my $fct = \&{"$1"};
+        my $fn  = $1;
+        my $fct = \&{"$fn"};
+      
         my @args = map { $data->{ $field->[$_] } // '' } 2 .. $#$field;
-        $value = $fct->(@args);
+        eval { $value = $fct->(@args) };
+      
+        # expliciter l'erreur
+        die "ligne: [" . join(';', @$field) . "]\n"
+            . "[$fn] n'est pas une fonction de " . __PACKAGE__ . "\n"
+            if $@ =~ /^Undefined subroutine/;
+        die $@ if $@;
     } else {
-        $value = join ' ', map { $data->{ $field->[$_] } // '' } 1 .. $#$field;
+        $value = '';
+        for (1 .. $#$field) {
+            $value .= ' ' 
+                if $value;
+            
+            # vérification que le champ existe dans le fichier d'entrée
+            die "ligne: [" . join(';', @$field) . "]\n"
+                . "[$field->[$_]] n'est pas un champ du fichier d'entrée\n"
+                if $field->[$_] && ! exists $data->{ $field->[$_] };
+
+            $value .= $data->{ $field->[$_] } // '';
+        }
     }
     
     return $value;            

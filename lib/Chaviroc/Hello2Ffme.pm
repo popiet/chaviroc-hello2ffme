@@ -62,15 +62,19 @@ sub value {
     } else {
         $value = '';
         for (1 .. $#$field) {
+            my $name = $field->[$_];
+            next unless $name;
+            
             $value .= ' ' 
                 if $value;
             
-            # vérification que le champ existe dans le fichier d'entrée
-            die "ligne: [" . join(';', @$field) . "]\n"
-                . "[$field->[$_]] n'est pas un champ du fichier d'entrée\n"
-                if $field->[$_] && ! exists $data->{ $field->[$_] };
-
-            $value .= $data->{ $field->[$_] } // '';
+            # le champ n'existe pas on considère que c'est une constante
+            if ($name && ! exists $data->{$name}) {
+                $value .= $name;
+            }
+            else {
+                $value .= $data->{$name} // '';
+            }
         }
     }
     

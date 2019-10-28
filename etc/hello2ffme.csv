@@ -26,15 +26,15 @@ PAP COURRIEL;Champ additionnel: Personne(s) à prévenir en cas d'accident : ema
 NUMERO DE LICENCE;Champ additionnel: Si vous avez déjà été licencié à la FFME, veuillez renseigner votre n° de licence composé de 6 chiffres (xxxxxx)
 TYPE LICENCE;fct:type;Formule
 ASSURANCE;fct:assurance;Formule
-OPTION SKI;fct:ski;Formule
-OPTION SLACKLINE;fct:slackline;Formule
-OPTION TRAIL;fct:trail;Formule
-OPTION VTT;fct:vtt;Formule
+OPTION SKI;NON;
+OPTION SLACKLINE;NON;
+OPTION TRAIL;NON;
+OPTION VTT;NON;
 ASSURANCE COMPLEMENTAIRE;
 ATTESTATION SANTE;fct:sante;Champ additionnel: Certificat Médical ou Attestation de Santé (CERFA N°15699*01)
 CM TYPE;Champ additionnel: Type de certificat médical
 CM MEDECIN;Champ additionnel: Nom du medecin ayant délivré le Certificat Médical
 DATE FIN CM PSS;
-CM ALPINISME;fct:alpinisme;
+CM ALPINISME;NON;
 CM ALPINISME MEDECIN;
 

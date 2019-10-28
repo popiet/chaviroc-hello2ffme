@@ -32,6 +32,8 @@ vers un champ du fichier de sortie.
 La première colonne "champ ffme" donne le nom du champ du fichier de sortie.
 Les colonnes suivantes les valeurs du fichier d'entrée à faire correspondre.
 Si plusieurs colonnes sont spécifiées, les valeurs correspondantes seront concaténées avec un espace.
+Si la valeur spécifiée n'est pas une colonne du fichier d'entrée,
+alors cette valeur sera considérée comme constante et sera affiché telle quelle pour chaque ligne.
 
 Parfois la simple correspondance entre 2 champs des 2 fichiers est insuffisante.
 Dans ce cas il est possible de spécifier dans le premier champ helloasso une fonction

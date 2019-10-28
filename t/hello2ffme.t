@@ -27,9 +27,8 @@ $data = { bonjour => 'aurevoir', salut => 'bisous'};
 is value($data, ['field1', 'salut']), 'bisous';
 is value($data, ['field2', 'bonjour']), 'aurevoir';
 
-# erreur si champ n'existe pas
-eval { value($data, ['field4', 'unknown']) };
-is $@, "ligne: [field4;unknown]\n[unknown] n'est pas un champ du fichier d'entrée\n";
+# on considère comme constante si le champ n'existe pas
+is value($data, ['field4', 'unknown']), 'unknown';
 
 # permettre champ vide
 is value($data, ['field4', '']), '';

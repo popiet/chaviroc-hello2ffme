@@ -10,8 +10,8 @@ ADRESSE COMPLEMENT;Champ additionnel: Complément d'adresse
 CODE POSTAL;Champ additionnel: Code Postal
 VILLE;Champ additionnel: Ville
 PAYS;fct:code_pays;Champ additionnel: Pays
-TEL FIXE;Champ additionnel: Numéro de téléphone fixe
-TEL MOBILE;Champ additionnel: Numéro de téléphone mobile
+TEL FIXE;fct:telephone;Champ additionnel: Numéro de téléphone fixe
+TEL MOBILE;fct:telephone;Champ additionnel: Numéro de téléphone mobile
 COURRIEL;Champ additionnel: Email
 COURRIEL 2;Champ additionnel: Email n°2
 GROUPE;
